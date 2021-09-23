@@ -18,5 +18,14 @@ javascript: (() => {
 		$('.statistic--user__general')[0].innerHTML += '<li>Note: The amount spent updates at 00:00 UTC</li>';
 		$('.statistic--user__general')[0].innerHTML += '<li><p>Profit vs Spent:</p> <span>'+ProfitOnSpent+'$</span></li>';
 		$('.statistic--user__general')[0].innerHTML += '<li><p>Percentage Profit:</p> <span>'+PercProfitOnSpent+'%</span></li>';
-	} 
+	}
+	if (typeof jQuery == 'undefined') {    
+		var script_jQuery = document.createElement('script');    
+		script_jQuery.src = 'https://code.jquery.com/jquery-latest.min.js';    
+		script_jQuery.onload = doStuff;    document.body.appendChild(script_jQuery);    
+		console.log('script_jQuery appended to body');  
+	} else { 
+		console.log('jQuery already included ...');    
+		doStuff();  
+	}  
 })();
